@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import Home from '../pages/Home'
 import Catalog from '../pages/Catalog'
 import Detail from '../pages/Detail'
-
+import NotFound from '../pages/NotFound'
 const Routes = () => {
     return (
         <Switch>
@@ -15,9 +15,6 @@ const Routes = () => {
                </Route>
                <Route path='/:category'>
                     <Catalog />
-               </Route>
-               <Route path='*'>
-               <h1>hi</h1>
                </Route>
            </Switch>
     )

@@ -1,6 +1,7 @@
 import React,{ useState, useEffect} from 'react'
 import MovieCard from '../MovieCard/MovieCard';
 import tmdbApi, {movieType, tvType} from '../../api/tmdbAPI';
+import { useHistory } from 'react-router';
 import "./Movies-Grid.scss"
 import Button from '../Button/Button';
 const MoviesGrid = props => {
@@ -8,25 +9,33 @@ const MoviesGrid = props => {
     const [page, setPage] = useState(1);
     const [inputValue, setInputValue] = useState("");
     const [searchCatg, setSearchCatg] = useState('')
+    const history = useHistory();
     useEffect(() => {
-        const getList = async () => {
-            let response = null;
-            const params = {};
-            if(props.category === 'movies') {
-                response = await tmdbApi.getMoviesList(movieType.upcoming, {params})
-            } else if (props.category === 'tvseries') {
-                response = await tmdbApi.getTvList(tvType.popular, {params})
-            } else {
-                return alert('hi')
+        if(props.category === 'movies' && props.category === 'tvseries') {
+            const getList = async () => {
+                let response = null;
+                const params = {};
+                if(props.category === 'movies') {
+                    response = await tmdbApi.getMoviesList(movieType.upcoming, {params})
+                } else if (props.category === 'tvseries') {
+                    response = await tmdbApi.getTvList(tvType.popular, {params})
+                } else {
+                    alert('Page Not Found ...')
+                    history.push('/')
+                }
+                setItems(response.results)
+                if(props.category === 'movies') {
+                    setSearchCatg('movies')
+                } else {
+                    setSearchCatg('tv');
+                }
             }
-            setItems(response.results)
-            if(props.category === 'movies') {
-                setSearchCatg('movies')
-            } else {
-                setSearchCatg('tv');
-            }
+            getList();
+        } else {
+            alert('Page Not Found')
+            history.push('/')
         }
-        getList();
+        
     },[props.category])
     const loadMore = async () => {
             let response = null;

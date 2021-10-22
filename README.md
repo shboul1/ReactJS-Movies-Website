@@ -4,8 +4,6 @@
 
 # Resource
 
-    Google font: https://fonts.google.com/
-
     API: https://www.themoviedb.org/
 
 # Preview

@@ -67,12 +67,25 @@
         .movie-title {
             font-size: 4rem;
         }
+        .genres {
+            display: flex;
+            flex-wrap: wrap;
+            & .btn  {
+                margin-bottom: 10px;
+            }
+        }
+        .overview {
+            font-size: 20px;
+        }
     }
 }
 
 .casts-section{
     .casts-title {
         font-size: 20px;
+        @include mobile {
+            font-size: 30px;
+        }
     }
     .our-casts {
         display: grid;
@@ -96,6 +109,12 @@
     @include tablet {
         width: 100%;
         padding: 0 2rem;
+    }
+    .video {
+        margin-bottom: 60px;
+        &__title {
+            padding-bottom: 20px;
+        }
     }
 }
 .similar-movies {
