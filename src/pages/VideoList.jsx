@@ -7,7 +7,6 @@ const VideoList = props => {
         const getVideos = async () => {
             const response = await tmdbApi.getVideos(props.category, props.id)
             setVideos(response.results.slice(0,5))
-            console.log(response.results.slice(0,5))
         }
         getVideos();
     },[props.id])

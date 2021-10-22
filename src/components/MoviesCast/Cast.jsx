@@ -8,7 +8,6 @@ const Cast = props => {
         const getCasts = async () => {
             const response = await tmdbApi.credits(props.category, props.id)
             setCasts(response.cast.slice(0,5))
-            console.log(response.cast)
         }
         getCasts();
 
