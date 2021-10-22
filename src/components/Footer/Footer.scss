@@ -1,0 +1,24 @@
+@use '../../scss/' as *;
+
+.footer {
+    padding: 5rem 2rem;
+    @include flex(center,center);
+    flex-direction: column;
+    .footer__content__menus {
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 50px;
+        .footer__content__menu {
+            @include flex(flex-start, flex-start);
+            flex-direction: column;
+            margin-top: 1rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            & > * ~ * {
+                margin-top: 15px;
+            }
+        }
+    }
+}

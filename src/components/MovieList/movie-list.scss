@@ -1,0 +1,22 @@
+@use '../../scss/' as *;
+
+.swiper-slide {
+    width: 15%;
+    @include tablet{
+        width: 30%
+    }
+    @include mobile {
+        width: 40%
+    }
+    img {
+        border-radius: 20px;
+    }
+    .movie-title {
+        font-weight: 600;
+        padding: 10px 5px;
+    }
+}
+.movie__list__header {
+    @include flex(center, space-between);
+    padding-bottom: 20px;
+}
