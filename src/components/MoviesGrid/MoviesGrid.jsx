@@ -11,7 +11,8 @@ const MoviesGrid = props => {
     const [searchCatg, setSearchCatg] = useState('')
     const history = useHistory();
     useEffect(() => {
-        if(props.category === 'movies' && props.category === 'tvseries') {
+        if(props.category === 'movies' || props.category === 'tvseries') {
+            
             const getList = async () => {
                 let response = null;
                 const params = {};
@@ -85,12 +86,3 @@ const MoviesGrid = props => {
 }
 
 export default MoviesGrid
-
-
-
-/* 
-{items.map((item, i) => (
-                <MovieCard  key={i} item={item} category={props.category === 'movies' ? 'movie' : 'tv'} />
-            ))}
-
-*/ 

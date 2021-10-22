@@ -9,7 +9,7 @@ const Catalog = () => {
     return (
         <div>
             <PageHeader>
-                <h2>{category === 'movies' ? "Movies" : "TV Series"}</h2>
+                <h2 className='header-title' style={{fontSize: "40px"}}>{category === 'movies' ? "Movies" : "TV Series"}</h2>
             </PageHeader>
             <div className="container mb-3">
                 <MoviesGrid category={category}/>
