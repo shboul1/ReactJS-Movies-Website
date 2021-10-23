@@ -106,7 +106,7 @@ const TrailerModal = props => {
     return (
         <Modal active={false} id={`modal_${item.id}`}>
             <ModalContent onClose={onClose} >
-            <iframe ref={iframeRef} width="800px" height="500px" title="trailer"></iframe>
+            <iframe className='trailer-video' ref={iframeRef} width="800px" height="500px" title="trailer"></iframe>
             </ModalContent>
         </Modal>
     )
